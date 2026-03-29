@@ -1,7 +1,8 @@
 import pyfiglet
 from fastapi import APIRouter
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse
 
+from constants import INDEX_HTML
 from models.text_to_banner import TextToBanner
 from services.font_utils import (
     all_fonts,
@@ -11,9 +12,9 @@ from services.font_utils import (
 router = APIRouter()
 
 
-@router.get("/")
+@router.get("/", response_class=HTMLResponse)
 async def root():
-    return "Hello, world!"  # TODO: think of returning an html which has links to docs
+    return INDEX_HTML.read_text()
 
 
 @router.get("/fonts")
