@@ -7,11 +7,9 @@ from services.font_utils import (
     CYRILLIC_DISPLAY,
     LATIN,
     LATIN_DISPLAY,
-    all_available_fonts,
-    get_cyrillic_fonts,
+    all_fonts,
+    cyrillic_fonts,
 )
-
-cyrillic_fonts = get_cyrillic_fonts()
 
 
 class TextToBanner(BaseModel):
@@ -23,7 +21,7 @@ class TextToBanner(BaseModel):
     def validate_font_prompt(
         self,
     ):  # TODO: create separate function for validating font and one for prompt
-        valid_fonts = cyrillic_fonts if self.cyrillic else all_available_fonts
+        valid_fonts = cyrillic_fonts if self.cyrillic else all_fonts
         if self.font not in valid_fonts:
             raise ValueError(
                 f"Invalid font: {self.font}. Available {CYRILLIC_DISPLAY if self.cyrillic else ''} fonts: {valid_fonts}"
