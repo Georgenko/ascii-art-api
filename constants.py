@@ -13,3 +13,5 @@ STD_CHAR_RAMP = (
 DEFAULT_NUM_CHARS = len(STD_CHAR_RAMP)
 MINIMAL_CHAR_RAMP = "@#S%?*+;:,. "
 IHDR_BYTES_LENGTH = 25
+
+POLLINATIONS_URL = "https://image.pollinations.ai/prompt/{prompt}"

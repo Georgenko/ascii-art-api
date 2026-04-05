@@ -4,6 +4,7 @@ from fastapi import APIRouter, Query, UploadFile
 from fastapi.responses import HTMLResponse, PlainTextResponse
 
 from constants import DEFAULT_NUM_CHARS, DEFAULT_WIDTH, INDEX_HTML, MAX_WIDTH
+from models.promp_to_image import PromptToImageRequest
 from models.text_to_banner import TextToBannerRequest
 from services.banner import convert_text_to_banner
 from services.fonts import (
@@ -11,6 +12,7 @@ from services.fonts import (
     cyrillic_fonts,
 )
 from services.image import convert_image_to_image, validate_image
+from services.prompt import convert_prompt_to_image
 
 router = APIRouter()
 
@@ -42,3 +44,8 @@ async def image_to_image(
 ):
     validate_image(image)
     return convert_image_to_image(image, width, num_chars, minimal)
+
+
+@router.post("/prompt-to-image", response_class=PlainTextResponse)
+async def prompt_to_image(request: PromptToImageRequest):
+    return await convert_prompt_to_image(request)
