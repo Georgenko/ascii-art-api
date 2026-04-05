@@ -22,6 +22,12 @@ def convert_image_to_image(
     image: UploadFile, width_pixels: int, num_chars: int, minimal
 ) -> str:
     img = Image.open(image.file)
+    return _pil_image_to_ascii(img, width_pixels, num_chars, minimal)
+
+
+def _pil_image_to_ascii(
+    img: Image.Image, width_pixels: int, num_chars: int, minimal: bool
+) -> str:
     height_pixels = (
         width_pixels // 2
     )  # Because characters are twice as tall as they are wide
@@ -30,12 +36,9 @@ def convert_image_to_image(
     # TODO: maybe explore using luma 709 and/or increasing contrast before converting
     img = img.convert("L")
 
-    if minimal:
-        chars = MINIMAL_CHAR_RAMP
-    else:
-        chars = get_chars(num_chars)
+    chars = MINIMAL_CHAR_RAMP if minimal else get_chars(num_chars)
 
-    result = ""
+    result = ""  # TODO: move to separate method
     pixels = list(img.getdata())
     for y in range(img.height):
         for x in range(img.width):
