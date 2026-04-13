@@ -17,7 +17,8 @@
 <main>
     <div id="text-to-banner" class="section">
         <h2>Text -> ASCII</h2>
-        <input type="text" placeholder="Write your text here..."/>
+        <label for="banner-textarea">Text:</label>
+        <textarea id="banner-textarea"></textarea>
         <button onclick="convertTextToBanner()">Convert</button>
     </div>
     <div id="image-to-ascii" class="section">
@@ -27,7 +28,8 @@
     </div>
     <div id="prompt-to-ascii" class="section">
         <h2>Prompt -> ASCII</h2>
-        <textarea placeholder="Write your prompt here..."></textarea>
+        <label for="prompt-textarea">Prompt:</label>
+        <textarea id="prompt-textarea"></textarea>
         <button>Generate</button>
     </div>
     <div id="result-view">

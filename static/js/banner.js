@@ -1,5 +1,5 @@
 async function convertTextToBanner() {
-    const input = document.querySelector("#text-to-banner input");
+    const input = document.querySelector("#text-to-banner textarea");
     const request = buildBannerRequest(input.value);
 
     try {
