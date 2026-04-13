@@ -6,6 +6,4 @@ function show(id) {
     if (id !== 'result-view') lastSection = id;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    show('text-to-banner');
-});
+show('text-to-banner');
