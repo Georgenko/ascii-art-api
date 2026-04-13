@@ -24,10 +24,8 @@ async def root():
 
 @router.get("/fonts")
 async def get_fonts(cyrillic: bool = False):
-    if cyrillic:
-        return f"All cyrillic fonts are: {cyrillic_fonts}"
-    return f"All fonts are: {all_fonts}"
-    # TODO instead of returning only the font names you can return a sample text with all fonts
+    return {"fonts": cyrillic_fonts if cyrillic else all_fonts}
+    # TODO add a preview param that returns a sample text with all/(10 at a time) fonts
 
 
 @router.post("/text-to-banner", response_class=PlainTextResponse)
