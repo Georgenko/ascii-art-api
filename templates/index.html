@@ -18,14 +18,20 @@
     <div id="text-to-banner" class="section">
         <h2>Text -> ASCII</h2>
 
-        <label for="textarea-banner">Text:</label>
-        <textarea id="textarea-banner"></textarea>
+        <div>
+            <label for="textarea-banner">Text:</label>
+            <textarea id="textarea-banner"></textarea>
+        </div>
 
-        <label for="select-font">Font:</label>
-        <select id="select-font"></select>
+        <div>
+            <label for="select-font">Font:</label>
+            <select id="select-font"></select>
+        </div>
 
-        <label for="checkbox-cyrillic">Cyrillic:</label>
-        <input type="checkbox" id="checkbox-cyrillic" onchange="loadBannerFonts()">
+        <div>
+            <label for="checkbox-cyrillic">Cyrillic:</label>
+            <input type="checkbox" id="checkbox-cyrillic" onchange="loadBannerFonts()">
+        </div>
 
         <button onclick="convertTextToBanner()">Convert</button>
     </div>
