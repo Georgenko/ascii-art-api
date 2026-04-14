@@ -1,5 +1,9 @@
+const BASE_URL = window.location.hostname === "127.0.0.1"
+  ? "http://127.0.0.1:8000"
+  : ""; // preparing for a build in Render
+
 async function getFonts(cyrillic = false) {
-    const response = await fetch(`http://127.0.0.1:8000/fonts?cyrillic=${cyrillic}`);
+    const response = await fetch(`${BASE_URL}/fonts?cyrillic=${cyrillic}`);
 
     if (!response.ok) await handleResponseError(response);
 
@@ -7,7 +11,7 @@ async function getFonts(cyrillic = false) {
 }
 
 async function postTextToBanner(requestBody) {
-    const response = await fetch("http://127.0.0.1:8000/text-to-banner", {
+    const response = await fetch(`${BASE_URL}/text-to-banner`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(requestBody),
