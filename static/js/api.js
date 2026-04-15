@@ -1,6 +1,6 @@
 const BASE_URL = window.location.hostname === "127.0.0.1"
   ? "http://127.0.0.1:8000"
-  : ""; // preparing for a build in Render
+  : ""; // empty when project is built on Render
 
 async function getFonts(cyrillic = false) {
     const response = await fetch(`${BASE_URL}/fonts?cyrillic=${cyrillic}`);
@@ -25,5 +25,5 @@ async function handleResponseError(response) {
     } catch {
         throw new Error(`Request failed with status ${response.status}`);
     }
-    throw new Error(error.detail ?? "Request failed");
+    throw new Error(error.detail ?? "Request failed"); // FastApi returns errors in "detail"
 }
