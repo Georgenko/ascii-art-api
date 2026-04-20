@@ -1,3 +1,4 @@
+import os
 import unicodedata
 from io import BytesIO
 from urllib.parse import quote
@@ -13,7 +14,6 @@ from services.image import _pil_image_to_ascii
 async def convert_prompt_to_image(request: PromptToImageRequest) -> str:
     image = await generate_image_from_prompt(request.prompt)
 
-    # TODO: make debugging a configurable flag that's off by default
     filename = f"debug/{sanitize_filename(request.prompt)}"
     save_debug_img(image, filename)
 
@@ -41,4 +41,6 @@ def sanitize_filename(prompt: str, max_length: int = 150) -> str:
 
 
 def save_debug_img(image: Image.Image, filename: str) -> None:
+    if not os.getenv("DEBUG", "false").lower() == "true":
+        return
     image.save(fp=f"{filename}.png")

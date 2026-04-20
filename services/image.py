@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 from fastapi import HTTPException, UploadFile
@@ -60,5 +61,7 @@ def get_chars(n: int) -> str:
 
 
 def save_debug_txt(result: str, filename: str) -> None:
+    if not os.getenv("DEBUG", "false").lower() == "true":
+        return
     with open(f"{filename}.txt", "w") as file:
         file.write(result)
