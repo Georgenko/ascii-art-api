@@ -7,3 +7,8 @@ function show(id) {
 }
 
 show('text-to-banner');
+
+function showResult(text) {
+    document.getElementById("result").textContent = text;
+    show('result-view');
+}

@@ -15,8 +15,3 @@ async function convertTextToBanner() {
 function buildBannerRequest(prompt, font = "standard", cyrillic = false) {
     return {prompt, font, cyrillic};
 }
-
-function showResult(text) {
-    document.getElementById("result").textContent = text;
-    show('result-view');
-}

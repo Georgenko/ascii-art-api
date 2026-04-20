@@ -6,6 +6,7 @@
     <script defer src="/static/js/api.js"></script>
     <script defer src="/static/js/fonts.js"></script>
     <script defer src="/static/js/banner.js"></script>
+    <script defer src="/static/js/image.js"></script>
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
@@ -33,7 +34,7 @@
     <div id="image-to-ascii" class="section">
         <h1>Convert image to ASCII (WIP)</h1>
         <input type="file" accept="image/*"/>
-        <button>Convert</button>
+        <button onclick="convertImageToAscii()">Convert</button>
         <p>You can try it out at the <a href="/docs">Swagger</a> or <a href="/redoc">ReDoc</a> docs</p>
     </div>
     <div id="prompt-to-ascii" class="section">

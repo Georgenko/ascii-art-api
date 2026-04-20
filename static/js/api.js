@@ -18,6 +18,15 @@ async function postTextToBanner(requestBody) {
     return response.text();
 }
 
+async function postImageToAscii(imageData, minimal) {
+    const response = await fetch (`${BASE_URL}/image-to-image?minimal=${minimal}`, {
+        method: "POST",
+        body: imageData
+    });
+    if (!response.ok) await handleResponseError(response);
+    return response.text();
+}
+
 async function handleResponseError(response) {
     let error;
     try {
