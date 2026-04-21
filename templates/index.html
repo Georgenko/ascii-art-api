@@ -7,6 +7,7 @@
     <script defer src="/static/js/fonts.js"></script>
     <script defer src="/static/js/banner.js"></script>
     <script defer src="/static/js/image.js"></script>
+    <script defer src="/static/js/prompt.js"></script>
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
@@ -33,15 +34,19 @@
     </div>
     <div id="image-to-ascii" class="section">
         <h1>Convert image to ASCII (WIP)</h1>
+
         <input type="file" accept="image/*"/>
-        <button onclick="convertImageToAscii()">Convert</button>
+        <button onclick="convertImageToImage()">Convert</button>
+
         <p>You can try it out at the <a href="/docs">Swagger</a> or <a href="/redoc">ReDoc</a> docs</p>
     </div>
     <div id="prompt-to-ascii" class="section">
         <h1>Convert prompt to ASCII (WIP)</h1>
-        <label for="prompt-textarea">Prompt:</label>
-        <textarea id="prompt-textarea"></textarea>
-        <button>Generate</button>
+
+        <label for="textarea-prompt">Prompt:</label>
+        <textarea id="textarea-prompt"></textarea>
+        <button onclick="convertPromptToImage()">Generate</button>
+
         <p>You can try it out at the <a href="/docs">Swagger</a> or <a href="/redoc">ReDoc</a> docs</p>
     </div>
     <div id="result-view">

@@ -1,8 +1,8 @@
 async function convertTextToBanner() {
-    const input = document.getElementById("textarea-banner").value;
+    const text = document.getElementById("textarea-banner").value;
     const font = document.getElementById("select-font").value;
     const cyrillic = document.getElementById("checkbox-cyrillic").checked;
-    const request = buildBannerRequest(input, font, cyrillic);
+    const request = buildBannerRequest(text, font, cyrillic);
 
     try {
         const banner = await postTextToBanner(request);
@@ -12,6 +12,6 @@ async function convertTextToBanner() {
     }
 }
 
-function buildBannerRequest(prompt, font = "standard", cyrillic = false) {
-    return {prompt, font, cyrillic};
+function buildBannerRequest(text, font = "standard", cyrillic = false) {
+    return {text, font, cyrillic};
 }

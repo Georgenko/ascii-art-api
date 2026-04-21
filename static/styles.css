@@ -33,3 +33,8 @@ h1 {
 #text-to-banner select {
     width: 200px;
 }
+
+#result-view pre {
+    font-size: 8px;
+    line-height: 1;
+}

@@ -18,10 +18,20 @@ async function postTextToBanner(requestBody) {
     return response.text();
 }
 
-async function postImageToAscii(imageData, minimal) {
+async function postImageToImage(imageData, minimal) {
     const response = await fetch (`${BASE_URL}/image-to-image?minimal=${minimal}`, {
         method: "POST",
         body: imageData
+    });
+    if (!response.ok) await handleResponseError(response);
+    return response.text();
+}
+
+async function postPromptToImage(requestBody) {
+    const response = await fetch (`${BASE_URL}/prompt-to-image`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(requestBody),
     });
     if (!response.ok) await handleResponseError(response);
     return response.text();

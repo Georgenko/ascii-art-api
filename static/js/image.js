@@ -1,4 +1,4 @@
-async function convertImageToAscii(){
+async function convertImageToImage(){
     const fileInput = document.querySelector('#image-to-ascii input[type="file"]');
     const file = fileInput.files[0];
 
@@ -12,7 +12,7 @@ async function convertImageToAscii(){
 
     const minimal = true;
     try {
-        const result = await postImageToAscii(formData, minimal)
+        const result = await postImageToImage(formData, minimal)
         showResult(result);
     } catch (err) {
         alert(`Failed to convert image to ascii:\n${err.message}`);
