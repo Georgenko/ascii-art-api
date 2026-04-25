@@ -35,7 +35,11 @@
     <div id="image-to-ascii" class="section">
         <h1>Convert image to ASCII (WIP)</h1>
 
-        <input type="file" accept="image/*"/>
+        <input type="file" accept="image/*"/><br><br>
+
+        <label for="checkbox-minimal">Minimal (uses only @#S%?*+;:,. ):</label>
+        <input type="checkbox" id="checkbox-minimal" checked><br><br>
+
         <button onclick="convertImageToImage()">Convert</button>
 
         <p>You can try it out at the <a href="/docs">Swagger</a> or <a href="/redoc">ReDoc</a> docs</p>
