@@ -39,17 +39,15 @@
         <label for="image">Upload an image:</label>
         <input type="file" accept="image/*" id="image"/><br><br>
 
+        <label for="image-width">Width:</label>
+        <input type="text" id="image-width"/><br><br>
+
         <label for="checkbox-minimal-image">Minimal (uses only @#S%?*+;:,. ):</label>
         <input type="checkbox" id="checkbox-minimal-image" checked><br><br>
 
-        <div id="non-minimal">
-            <label for="image-width">Width:</label>
-            <input type="text" id="image-width"/><br><br>
-
-            <label for="image-num-chars">Number of characters:</label>
-            <input type="text" id="image-num-chars"/>
-            <span>This determines how many evenly-distributed symbols to use from the following: $@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. </span><br>
-        </div>
+        <label for="image-num-chars">Number of characters:</label>
+        <input type="text" id="image-num-chars"/>
+        <span>This determines how many evenly-distributed symbols to use from the following: $@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. </span><br>
 
         <button onclick="convertImageToImage()">Convert</button>
     </div>

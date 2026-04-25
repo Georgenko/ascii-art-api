@@ -6,21 +6,26 @@ async function convertImageToImage(){
     let width = document.getElementById("image-width").value;
     let numChars = document.getElementById("image-num-chars").value;
 
-    if (!minimal) {
-        if (!width || !numChars) {
-            alert("Please enter a number for Width and Number of characters when non-minimal");
-            return;
-        }
-        if (width <= 0 || width > 10000) {
+    if (!width) {
+        width = 500;
+    } else {
+        if (width && (width <= 0 || width > 10000)) {
             alert("Please enter a Width > 0 and <= 10000");
             return;
         }
+    }
+
+    if (!minimal) {
+        if (!numChars) {
+            alert("Please enter a Number of characters when non-minimal");
+            return;
+        }
+
         if (numChars <= 0 || numChars > 70) {
             alert("Please enter a Number of characters > 0 and <= 70");
             return;
         }
     } else {
-        width = 500;
         numChars = 70;
     }
     // TODO: when choosing a width that is 1000 for banana.png i get the bug of shrinking nav section
