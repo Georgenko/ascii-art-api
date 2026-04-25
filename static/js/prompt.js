@@ -10,7 +10,7 @@ async function convertPromptToImage(){
 
     try {
         const imageResult = await postPromptToImage(request);
-        showResult(imageResult, "pre-banner", "banner-view");
+        showResult(imageResult, "pre-image", "image-view");
     } catch (err) {
         alert(`Failed to convert prompt to ASCII:\n${err.message}`);
     }
