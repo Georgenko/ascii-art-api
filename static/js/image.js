@@ -2,7 +2,7 @@ async function convertImageToImage(){
     const fileInput = document.querySelector('#image-to-ascii input[type="file"]');
     const file = fileInput.files[0];
 
-    const minimal = document.getElementById("checkbox-minimal").checked;
+    const minimal = document.getElementById("checkbox-minimal-image").checked;
 
     if (!file) {
         alert('Please select an image first');

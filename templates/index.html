@@ -16,6 +16,7 @@
     <a onclick="show('text-to-banner')">Text -> Banner</a>
     <a onclick="show('image-to-ascii')">Image -> ASCII</a>
     <a onclick="show('prompt-to-ascii')">Prompt -> ASCII</a>
+    <a onclick="show('docs')">Docs</a>
 </nav>
 <main>
     <div id="text-to-banner" class="section">
@@ -33,25 +34,29 @@
         <button onclick="convertTextToBanner()">Convert</button>
     </div>
     <div id="image-to-ascii" class="section">
-        <h1>Convert image to ASCII (WIP)</h1>
+        <h1>Convert image to ASCII</h1>
 
-        <input type="file" accept="image/*"/><br><br>
+        <label for="image">Upload an image:</label><br>
+        <input type="file" accept="image/*" id="image"/><br><br>
 
-        <label for="checkbox-minimal">Minimal (uses only @#S%?*+;:,. ):</label>
-        <input type="checkbox" id="checkbox-minimal" checked><br><br>
+        <label for="checkbox-minimal-image">Minimal (uses only @#S%?*+;:,. ):</label>
+        <input type="checkbox" id="checkbox-minimal-image" checked><br><br>
 
         <button onclick="convertImageToImage()">Convert</button>
-
-        <p>You can try it out at the <a href="/docs">Swagger</a> or <a href="/redoc">ReDoc</a> docs</p>
     </div>
     <div id="prompt-to-ascii" class="section">
-        <h1>Convert prompt to ASCII (WIP)</h1>
+        <h1>Convert prompt to ASCII</h1>
 
-        <label for="textarea-prompt">Prompt:</label>
-        <textarea id="textarea-prompt"></textarea>
+        <label for="textarea-prompt">Prompt:</label><br>
+        <textarea id="textarea-prompt"></textarea><br><br>
+
+        <label for="checkbox-minimal-prompt">Minimal (uses only @#S%?*+;:,. ):</label>
+        <input type="checkbox" id="checkbox-minimal-prompt" checked><br><br>
+
         <button onclick="convertPromptToImage()">Generate</button>
-
-        <p>You can try it out at the <a href="/docs">Swagger</a> or <a href="/redoc">ReDoc</a> docs</p>
+    </div>
+    <div id="docs" class="section">
+        <p>You can check the <a href="/docs">Swagger</a> or <a href="/redoc">ReDoc</a> docs</p>
     </div>
     <div id="banner-view">
         <button onclick="show(lastSection)">← Back</button>
@@ -61,6 +66,7 @@
         <button onclick="show(lastSection)">← Back</button>
         <pre></pre>
     </div>
+
 </main>
 </body>
 </html>

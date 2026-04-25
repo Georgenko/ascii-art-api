@@ -1,4 +1,4 @@
-const sections = ['text-to-banner', 'image-to-ascii', 'prompt-to-ascii', 'banner-view', 'image-view'];
+const sections = ['text-to-banner', 'image-to-ascii', 'prompt-to-ascii', 'banner-view', 'image-view', 'docs'];
 // TODO: extract constants somewhere and reuse throughout JS and maybe HTML/CSS?
 let lastSection = 'text-to-banner';
 
