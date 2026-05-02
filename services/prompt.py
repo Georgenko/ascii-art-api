@@ -4,6 +4,7 @@ from io import BytesIO
 from urllib.parse import quote
 
 import httpx
+from fastapi import HTTPException
 from PIL import Image
 
 from constants import FILESYSTEM_UNSAFE_CHARS, POLLINATIONS_URL, SEPARATORS
@@ -24,8 +25,13 @@ async def convert_prompt_to_image(request: PromptToImageRequest) -> str:
 
 async def generate_image_from_prompt(prompt: str) -> Image.Image:
     url = POLLINATIONS_URL.format(prompt=quote(prompt))
-    async with httpx.AsyncClient(timeout=60.0) as client:
+    async with httpx.AsyncClient(timeout=None) as client:
         response = await client.get(url)
+        if response.status_code == 429:
+            raise HTTPException(
+                status_code=429,
+                detail="Rate limit reached. Please wait a moment and try again.",
+            )
         response.raise_for_status()
     return Image.open(BytesIO(response.content))
 
