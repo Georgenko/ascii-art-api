@@ -7,7 +7,7 @@ import httpx
 from PIL import Image
 
 from constants import FILESYSTEM_UNSAFE_CHARS, POLLINATIONS_URL, SEPARATORS
-from models.promp_to_image import PromptToImageRequest
+from models.prompt_to_image import PromptToImageRequest
 from services.image import _pil_image_to_ascii
 
 

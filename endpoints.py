@@ -4,7 +4,7 @@ from fastapi import APIRouter, Query, UploadFile
 from fastapi.responses import HTMLResponse, PlainTextResponse
 
 from constants import DEFAULT_NUM_CHARS, DEFAULT_WIDTH, INDEX_HTML, MAX_WIDTH
-from models.promp_to_image import PromptToImageRequest
+from models.prompt_to_image import PromptToImageRequest
 from models.text_to_banner import TextToBannerRequest
 from services.banner import convert_text_to_banner
 from services.fonts import (
