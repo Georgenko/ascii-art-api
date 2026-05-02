@@ -10,17 +10,25 @@ async function convertPromptToImage(){
 
     const request = buildPromptRequest(prompt, minimal, width, numChars);
 
-    document.getElementById("spinner").hidden = false;
+    setSectionLoading(true);
+
     try {
         const imageResult = await postPromptToImage(request);
         showResult(imageResult, "image-view");
     } catch (err) {
         alert(`Failed to convert prompt to ASCII:\n${err.message}`);
     } finally {
-        document.getElementById("spinner").hidden = true;
+        setSectionLoading(false);
     }
 }
 
 function buildPromptRequest(prompt, minimal, width, num_chars) {
     return {prompt, width, num_chars, minimal};
+}
+
+function setSectionLoading(loading) {
+    document.getElementById("spinner").hidden = !loading;
+    document.querySelector("#prompt-to-ascii button").disabled = loading;
+    document.querySelector("#textarea-prompt").disabled = loading;
+    document.querySelectorAll("#image-options input").forEach(input => input.disabled = loading);
 }
