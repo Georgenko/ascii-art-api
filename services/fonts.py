@@ -1,11 +1,13 @@
 import pyfiglet
 
+from constants import WEIRD_FONTS
+
 CYRILLIC = "CYRILLIC"
 LATIN = "LATIN"
 CYRILLIC_DISPLAY = "Cyrillic"
 LATIN_DISPLAY = "Latin"
 
-all_fonts = pyfiglet.Figlet().getFonts()
+all_fonts = [font for font in pyfiglet.Figlet().getFonts() if font not in WEIRD_FONTS]
 
 
 def get_cyrillic_fonts():
